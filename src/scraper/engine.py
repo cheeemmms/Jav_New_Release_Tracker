@@ -1,5 +1,6 @@
 import random
 import time
+import os
 
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
@@ -7,6 +8,21 @@ from bs4 import BeautifulSoup
 
 def random_delay(min_s=3, max_s=7):
     time.sleep(random.uniform(min_s, max_s))
+
+
+def _find_system_browser():
+    if os.name != "nt":
+        return None
+    candidates = [
+        "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+        "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
+        "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+    ]
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+    return None
 
 
 class BrowserEngine:
@@ -20,15 +36,40 @@ class BrowserEngine:
 
     def start(self):
         self._playwright = sync_playwright().start()
-        launch_options = {"headless": self._headless}
 
         if self._proxy:
-            launch_options["proxy"] = {"server": self._proxy}
+            launch_options = {"proxy": {"server": self._proxy}}
+        else:
+            launch_options = {}
 
-        try:
-            self._browser = self._playwright.chromium.launch(**launch_options)
-        except Exception:
-            self._browser = self._playwright.chromium.launch(headless=self._headless)
+        launch_options["headless"] = self._headless
+
+        browser_launched = False
+
+        system_browser = _find_system_browser()
+        if system_browser:
+            try:
+                launch_options["executable_path"] = system_browser
+                self._browser = self._playwright.chromium.launch(**launch_options)
+                browser_launched = True
+            except Exception:
+                launch_options.pop("executable_path", None)
+                launch_options.pop("proxy", None)
+
+        if not browser_launched:
+            launch_options.pop("executable_path", None)
+            try:
+                self._browser = self._playwright.chromium.launch(**launch_options)
+                browser_launched = True
+            except Exception:
+                pass
+
+        if not browser_launched:
+            raise RuntimeError(
+                "浏览器启动失败。请确认：\n"
+                "1. Chrome 或 Edge 已安装\n"
+                "2. 或者执行: playwright install chromium"
+            )
 
         context = self._browser.new_context()
 
