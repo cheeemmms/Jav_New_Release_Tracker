@@ -89,10 +89,25 @@ class BrowserEngine:
         return BeautifulSoup(content, "html.parser")
 
     def close(self):
-        if self._browser:
-            self._browser.close()
-        if self._playwright:
-            self._playwright.stop()
+        try:
+            if self._browser:
+                self._browser.close()
+        except Exception:
+            pass
+        try:
+            if self._playwright:
+                self._playwright.stop()
+        except Exception:
+            pass
+
+    def is_alive(self):
+        try:
+            if self._browser and self._page:
+                self._page.evaluate("1 + 1")
+                return True
+        except Exception:
+            pass
+        return False
 
     def __enter__(self):
         self.start()

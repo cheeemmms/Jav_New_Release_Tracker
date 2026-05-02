@@ -62,6 +62,10 @@ def main():
                 if idx > 1:
                     random_delay(3, 7)
 
+                if not engine.is_alive():
+                    log_warning("  浏览器已断开，正在重启...")
+                    engine.start()
+
                 soup = engine.navigate(url)
                 movies = parse_star_page(soup, name, cutoff_date)
                 all_results[name] = movies
@@ -74,6 +78,12 @@ def main():
             except Exception as e:
                 log_error(f"  {name}: 抓取失败 - {e}")
                 all_results[name] = []
+                try:
+                    if not engine.is_alive():
+                        log_warning("  浏览器已断开，正在重启...")
+                        engine.start()
+                except Exception:
+                    pass
 
     log_title("生成报告")
 
