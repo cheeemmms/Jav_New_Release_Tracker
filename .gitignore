@@ -9,3 +9,5 @@ build/
 
 config/state.json
 outputs/*.md
+
+favorites_*.html
