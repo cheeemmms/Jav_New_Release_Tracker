@@ -1,7 +1,7 @@
 settings:
   proxy: ""
   batch_size: 20
-  headless: false
+  headless: true
 
 stars:
   - { name: "高橋ほなみ", id: "121h" }

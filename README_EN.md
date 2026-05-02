@@ -159,6 +159,7 @@ settings:
   proxy: "http://127.0.0.1:7890"   # Proxy address, see below
   batch_size: 20                   # Links per browser batch
   headless: false                  # Hide browser? (recommend false)
+  start_date: ""                   # Fixed start date, skips interactive prompt (optional)
 
 stars:
   - { name: "Yua Mikami", id: "12xc" }
@@ -169,6 +170,18 @@ stars:
 - `name`: Any display name, used in reports
 - `id`: The UID extracted from her profile URL
 - To add more actresses, copy the `{ name: "...", id: "..." }` line
+
+#### Fixed Start Date
+
+Set `start_date` in `settings` to skip the date selection prompt each run:
+
+```yaml
+settings:
+  start_date: "2026-05-01"
+```
+
+- When set, the program **skips** the interactive date selection
+- Leave empty `""` or omit to restore interactive mode
 
 ### Proxy Settings
 

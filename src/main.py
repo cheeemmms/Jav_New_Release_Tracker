@@ -27,8 +27,12 @@ def main():
 
     last_run = load_json("config/state.json", default={}).get("last_run_date", "")
 
-    cutoff_date = last_run
-    if last_run:
+    fixed_date = settings.get("start_date", "")
+    if fixed_date:
+        cutoff_date = fixed_date
+        log_info(f"使用配置文件设置的起始日期: {cutoff_date}")
+    elif last_run:
+        cutoff_date = last_run
         choice = ask_choice(
             f"上次运行日期: {last_run}，请选择:",
             [f"使用上次日期 ({last_run})", "手动输入新日期"]
