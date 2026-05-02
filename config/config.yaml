@@ -1,0 +1,7 @@
+settings:
+  proxy: "http://127.0.0.1:7890"
+  batch_size: 20
+  headless: false
+
+stars:
+  - { name: "示例女优", id: "xxxx" }
