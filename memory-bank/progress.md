@@ -40,9 +40,9 @@
 
 | # | 任务 | 状态 | 备注 |
 |---|------|------|------|
-| 4.1 | `src/output/__init__.py` | ⬜ | |
-| 4.2 | `src/output/md_generator.py` | ⬜ | |
-| 4.3 | `src/output/browser_opener.py` | ⬜ | |
+| 4.1 | `src/output/__init__.py` | ✅ | |
+| 4.2 | `src/output/md_generator.py` | ✅ | 按女优分类生成 Updates_YYYYMMDD.md |
+| 4.3 | `src/output/browser_opener.py` | ✅ | webbrowser 分批打开，交互式确认 |
 
 ---
 
@@ -73,10 +73,10 @@
 | P1 项目脚手架 | 5/5 | 100% |
 | P2 工具模块 | 3/3 | 100% |
 | P3 爬虫核心 | 3/3 | 100% |
-| P4 输出模块 | 0/3 | 0% |
+| P4 输出模块 | 3/3 | 100% |
 | P5 主入口 | 0/2 | 0% |
 | P6 集成验证 | 0/4 | 0% |
-| **总计** | **11/20** | **55%** |
+| **总计** | **14/20** | **70%** |
 
 ---
 
@@ -84,6 +84,7 @@
 
 | 日期 | 变更内容 |
 |------|----------|
+| 2026-05-02 | P4 输出模块完成：md_generator（Markdown 报告）、browser_opener（分批浏览器） |
 | 2026-05-02 | P3 爬虫核心完成：engine（Playwright+Stealth）、parser（BS4 日期/VR 过滤） |
 | 2026-05-02 | P2 工具模块完成：config_loader（YAML/JSON 读写）、logger（Rich 终端日志与交互） |
 | 2026-05-02 | P1 项目脚手架完成：目录结构、requirements.txt、.gitignore、config.yaml、state.json |
