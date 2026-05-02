@@ -9,6 +9,8 @@
 
 Automatically scrape new releases for your favorite actresses, generate Markdown reports, and preview them in batches in your browser.
 
+> 🤖 This project was entirely written by AI.
+
 ---
 
 ## ⚠️ Disclaimer
