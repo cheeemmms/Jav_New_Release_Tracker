@@ -17,8 +17,8 @@ def parse_star_page(soup, star_name, cutoff_date_str):
         if url and not url.startswith("http"):
             url = f"https://www.javbus.com{url}"
 
-        date_elem = item.select_one("date")
-        raw_date = date_elem.text.strip() if date_elem else ""
+        date_elems = item.select("date")
+        raw_date = date_elems[-1].text.strip() if date_elems else ""
         if len(raw_date) > 10:
             raw_date = raw_date[-10:]
 
