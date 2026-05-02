@@ -4,4 +4,6 @@ settings:
   headless: false
 
 stars:
-  - { name: "示例女优", id: "xxxx" }
+  - { name: "女优1", id: "121h" }
+  - { name: "女优2", id: "wbu" }
+  - { name: "你的女优", id: "她的UID" }
