@@ -32,7 +32,7 @@ def parse_star_page(soup, star_name, cutoff_date_str):
                 continue
 
         if movie_date < cutoff:
-            break
+            continue
 
         is_vr = "VR" in title or "【VR】" in title
         if is_vr:
