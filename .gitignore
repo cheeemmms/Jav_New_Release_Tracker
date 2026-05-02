@@ -11,3 +11,4 @@ config/state.json
 outputs/*.md
 
 favorites_*.html
+sample/
