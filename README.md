@@ -1,5 +1,12 @@
 # JAV New Release Tracker (JRT)
 
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Ready-brightgreen)]()
+[![GitHub stars](https://img.shields.io/github/stars/cheeemmms/Jav_New_Release_Tracker?style=flat)](https://github.com/cheeemmms/Jav_New_Release_Tracker/stargazers)
+
+> 🇬🇧 [English version](README_EN.md) | 🇨🇳 中文版
+
 自动化抓取指定女优的新发布作品，生成 Markdown 报告并分批在浏览器中预览。
 
 ---
