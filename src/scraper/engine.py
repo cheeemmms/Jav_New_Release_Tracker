@@ -35,6 +35,8 @@ class BrowserEngine:
         self._page = None
 
     def start(self):
+        self.close()
+
         self._playwright = sync_playwright().start()
 
         if self._proxy:
