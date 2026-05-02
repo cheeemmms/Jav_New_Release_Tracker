@@ -30,9 +30,9 @@
 
 | # | 任务 | 状态 | 备注 |
 |---|------|------|------|
-| 3.1 | `src/scraper/__init__.py` | ⬜ | |
-| 3.2 | `src/scraper/engine.py` | ⬜ | |
-| 3.3 | `src/scraper/parser.py` | ⬜ | |
+| 3.1 | `src/scraper/__init__.py` | ✅ | |
+| 3.2 | `src/scraper/engine.py` | ✅ | Playwright + Stealth + 上下文管理器 + 随机延时 |
+| 3.3 | `src/scraper/parser.py` | ✅ | BS4 解析：日期过滤、VR 过滤、URL 补全 |
 
 ---
 
@@ -72,11 +72,11 @@
 |------|-----------|------|
 | P1 项目脚手架 | 5/5 | 100% |
 | P2 工具模块 | 3/3 | 100% |
-| P3 爬虫核心 | 0/3 | 0% |
+| P3 爬虫核心 | 3/3 | 100% |
 | P4 输出模块 | 0/3 | 0% |
 | P5 主入口 | 0/2 | 0% |
 | P6 集成验证 | 0/4 | 0% |
-| **总计** | **8/20** | **40%** |
+| **总计** | **11/20** | **55%** |
 
 ---
 
@@ -84,6 +84,7 @@
 
 | 日期 | 变更内容 |
 |------|----------|
+| 2026-05-02 | P3 爬虫核心完成：engine（Playwright+Stealth）、parser（BS4 日期/VR 过滤） |
 | 2026-05-02 | P2 工具模块完成：config_loader（YAML/JSON 读写）、logger（Rich 终端日志与交互） |
 | 2026-05-02 | P1 项目脚手架完成：目录结构、requirements.txt、.gitignore、config.yaml、state.json |
 | 2026-05-02 | 初始化进度文件，所有任务待开始 |
